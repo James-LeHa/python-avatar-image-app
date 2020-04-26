@@ -25,22 +25,11 @@ def format_query(login):
     return queryFormatted
 
 
-# The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.       
-query = """
-{{
-  user(login: "{}") {{
-    avatarUrl
-  }}
-}}
-"""
-
-queryFormatted = query.format(userName)
-
 #result = run_query(queryFormatted) # Execute the query
 #avatarUrlReturned = result["data"]["user"]["avatarUrl"] # Drill down the dictionary
 
 urls = (
-'/input', 'index'
+'/user', 'index'
 )
 class index:
     def GET(self):
@@ -56,4 +45,7 @@ if __name__ == "__main__":
     app = web.application(urls, globals())
     app.run()
 render = web.template.render('templates/')
+
+
+
 
