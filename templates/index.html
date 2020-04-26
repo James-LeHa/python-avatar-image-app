@@ -2,5 +2,18 @@ $def with (name)
 $if name:
     <h2> Look at this cool Hubber : </h2> 
      <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="$name&s=150">
+     <div><a href="/user">Search for more</a></div>
 $else:
-    <em>Hello</em>, world! Enter a Hubber's name to search for them!
+    <script language="javascript" type="text/javascript">
+        function buttonClick(){
+        var url = document.getElementById("inputURL").value;
+        window.location = "?name=" + url;
+        }
+    </script>
+    <body>
+    <h2><em>Hello</em>! Enter a Hubber's name to search for them! </h2>
+    <form>
+     Handle: <input type="text" id="inputURL" name="inputURL" value=""><br>
+    <input type="button" value="click" OnClick="buttonClick()"/>
+    </form>
+    </body>
