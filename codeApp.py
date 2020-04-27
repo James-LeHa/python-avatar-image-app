@@ -1,9 +1,11 @@
 import requests
 import settings
 import web
+import os
 
 
-headers = {"Authorization": "Bearer " + settings.key}
+#headers = {"Authorization": "Bearer " + settings.key}
+headers = {"Authorization": "Bearer " + os.environ['APIKEY']}
 
 def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
     request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
