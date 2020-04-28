@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      env:
+        APIKEY: ${{ secrets.API_KEY }}
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
@@ -25,9 +27,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Lint with flake8
-      env: 
-        APIKEY: ${{ secrets.API_KEY }}
       run: |
+        echo using APIKEY ${{ secrets.API_KEY }}
         pip install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
