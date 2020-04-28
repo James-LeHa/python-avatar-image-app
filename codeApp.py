@@ -42,10 +42,6 @@ querySample = """
     }
 """
 
-userName = "izzyco" 
-query = format_queryUser(userName)
-result = run_query(querySample)
-avatarUrlReturned = result["data"]["user"]["avatarUrl"]
 #result = run_query(queryFormatted) # Execute the query
 #avatarUrlReturned = result["data"]["user"]["avatarUrl"] # Drill down the dictionary
 
