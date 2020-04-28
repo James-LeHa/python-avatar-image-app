@@ -18,37 +18,63 @@ def run_query(query): # A simple function to use requests.post to make the API c
     else:
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
  
-def format_query(login):
+def format_queryUser(login):
     query = """
     {{
         user(login: "{}") {{
             avatarUrl
+            bio
+            isEmployee
+            url
         }}
     }}
     """
     queryFormatted = query.format(login)
     return queryFormatted
 
+
+querySample = """
+    {
+    user(login: "izzyco") {
+        avatarUrl
+        bio
+        }
+    }
+"""
+
 userName = "izzyco" 
-query = format_query(userName)
-result = run_query(query)
+query = format_queryUser(userName)
+result = run_query(querySample)
 avatarUrlReturned = result["data"]["user"]["avatarUrl"]
 #result = run_query(queryFormatted) # Execute the query
 #avatarUrlReturned = result["data"]["user"]["avatarUrl"] # Drill down the dictionary
 
 urls = (
-'/user', 'index'
+'/user', 'users',
+'/', 'home'
 )
-class index:
+class users:
     def GET(self):
         i = web.input(name=None)
         if i.name != None:
-            query = format_query(i.name)
+            query = format_queryUser(i.name)
             result = run_query(query)
             avatarUrlReturned = result["data"]["user"]["avatarUrl"]
-            return render.index(avatarUrlReturned)
+            bioReturned = result["data"]["user"]["bio"]
+            employeeReturned = result["data"]["user"]["isEmployee"]
+            urlReturned = result["data"]["user"]["url"]
+
+            pyDict = {}
+            pyDict['avatarUrl'] = avatarUrlReturned
+            pyDict['bio'] = bioReturned
+            pyDict['isStaff'] = employeeReturned
+            pyDict['url'] = urlReturned 
+            return render.users(pyDict)
         else:
-            return render.index(i.name)
+            return render.users(i.name)
+class home:
+    def GET(self):
+        return render.home()
 if __name__ == "__main__":
     app = web.application(urls, globals())
     app.run()

@@ -1,8 +1,12 @@
 $def with (name)
 $if name:
-    <h2> Look at this cool Hubber : </h2> 
-     <img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="$name&s=150">
+     <h2> Look at this cool Hubber : </h2> 
+     <img id='avatarImg' style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="$name['avatarUrl']&s=150">
+     <div style='font-style: italic;'>$name['bio']</div>
+     <div>Staff: $name['isStaff']</div>
+     <div><a href="$name['url']?tab=repositories">Check out their repos!</a></div>
      <div><a href="/user">Search for more</a></div>
+
 $else:
     
     <body>
