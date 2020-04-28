@@ -5,6 +5,8 @@ name: Python application
 
 on:
   push:
+    paths-ignore: 
+      -  README.md
     branches: [ master ]
   pull_request:
     branches: [ master ]
