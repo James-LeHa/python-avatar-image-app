@@ -1,5 +1,5 @@
 # Python-GitHubAPI-App
-Simple Python web.py application to leverage and test the **GitHub GraphQL API v4**.
+Simple Python web.py application to leverage and test the **GitHub GraphQL API v4** and simple **CI/CD Workflows**.
 
 
 ### Functionality To-Do
