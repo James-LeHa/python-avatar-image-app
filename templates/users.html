@@ -3,9 +3,19 @@ $if name:
      <h2> Look at this cool Hubber : </h2> 
      <img id='avatarImg' style="-webkit-user-select: none;margin: auto;cursor: zoom-in;" src="$name['avatarUrl']&s=150">
      <div style='font-style: italic;'>$name['bio']</div>
-     <div>Staff: $name['isStaff']</div>
+     <div style="font-weight:bolder" id='staff'></div>
      <div><a href="$name['url']?tab=repositories">Check out their repos!</a></div>
      <div><a href="/user">Search for more</a></div>
+
+     <script language="javascript" type="text/javascript">
+
+        var staffStatus = '$name["isStaff"]'
+        if (staffStatus == 'True')
+        {
+            document.getElementById("staff").innerHTML = "STAFF";
+        }
+
+    </script>
 
 $else:
     
