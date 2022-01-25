@@ -1,4 +1,6 @@
 # Python-GitHubAPI-App
+
+[![Git](https://app.soluble.cloud/api/v1/public/badges/4a5c49cd-dcea-4b33-80bc-c0fa8c3339c5.svg?orgId=650162616495)](https://app.soluble.cloud/repos/details/github.com/james-leha/python-githubapi-herokuapp?orgId=650162616495)  
 Simple Python web.py application to leverage and test the **GitHub GraphQL API v4** and simple **CI/CD Workflows**.
 
 
